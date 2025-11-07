@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { EmpfilterPipe } from '../shared/pipe/empfilter.pipe';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-employee',
@@ -29,6 +30,16 @@ export class EmployeeComponent {
 
   toggleFilter() {
     this.showFilters = !this.showFilters
+  }
+
+  showAlert() {
+    // alert('Működik')
+    Swal.fire({
+      icon: 'success',
+      title: 'Működik',
+      showConfirmButton: false,
+      timer: 3000,
+    })
   }
 
 }

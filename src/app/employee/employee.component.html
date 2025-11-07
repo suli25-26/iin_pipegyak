@@ -2,6 +2,8 @@
 
 <button (click)="toggleFilter()">Szűrők</button>
 
+<button (click)="showAlert()">Mutat</button>
+
 @if(showFilters) {
     <div>
         <input [formControl]="filteredName"
