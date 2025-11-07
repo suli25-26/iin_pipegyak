@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import { EmpfilterPipe } from '../shared/pipe/empfilter.pipe';
 
 @Component({
   selector: 'app-employee',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule, EmpfilterPipe],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.css'
 })
@@ -16,8 +18,11 @@ export class EmployeeComponent {
     {id: 4, name:"Cson Áron", city: "Hatvan", salary: 387.9 },
     {id: 5, name:"Lib Aranka", city: "Pécs", salary: 385.6 },
     {id: 6, name:"Fin Árpád", city: "Pécs", salary: 388.7 },
-    {id: 7, name:"Lór Péter", city: "Hatvan", salary: 395.6 },
+    {id: 7, name:"Lór Péter", city: "Szolnok", salary: 395.6 },
     {id: 8, name:"Sim Elek", city: "Szeged", salary: 393.2 }
   ]
+
+  filteredCity = new FormControl('')
+  filteredEmpList = this.empList;
 
 }

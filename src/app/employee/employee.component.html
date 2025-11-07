@@ -1,4 +1,7 @@
-<p>employee works!</p>
+<h2>Dolgozók</h2>
+
+<input [formControl]="filteredCity"
+placeholder="Település" type="text">
 
 <table>
     <thead>
@@ -10,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        @for(emp of empList; track emp.id) {
+        @for(emp of filteredEmpList | empfilter:filteredCity.value; track emp.id) {
             <tr>
                 <td>{{emp.id}}</td>
                 <td>{{emp.name}}</td>
