@@ -6,12 +6,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class EmpfilterPipe implements PipeTransform {
 
-  transform(employees: any[], filter: string | null): any {
-    if(!employees || !filter) {
+  transform(employees: any[], filter: {name: string | null; city: string | null} ): any {
+    if(!employees || (!filter.name && !filter.city)) {
       return employees
     }
     return employees.filter( (emp) => {
-      return emp.city.includes(filter)
+      return (emp.name.includes(filter.name) && emp.city.includes(filter.city))
     } );
   }
 

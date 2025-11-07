@@ -23,6 +23,12 @@ export class EmployeeComponent {
   ]
 
   filteredCity = new FormControl('')
-  filteredEmpList = this.empList;
+  filteredName = new FormControl('')
+  filteredEmpList = this.empList
+  showFilters = false
+
+  toggleFilter() {
+    this.showFilters = !this.showFilters
+  }
 
 }

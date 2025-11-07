@@ -1,7 +1,16 @@
 <h2>Dolgozók</h2>
 
-<input [formControl]="filteredCity"
-placeholder="Település" type="text">
+<button (click)="toggleFilter()">Szűrők</button>
+
+@if(showFilters) {
+    <div>
+        <input [formControl]="filteredName"
+        placeholder="Név" type="text">
+        
+        <input [formControl]="filteredCity"
+        placeholder="Település" type="text">
+    </div>
+}
 
 <table>
     <thead>
@@ -13,7 +22,8 @@ placeholder="Település" type="text">
         </tr>
     </thead>
     <tbody>
-        @for(emp of filteredEmpList | empfilter:filteredCity.value; track emp.id) {
+        @for(emp of filteredEmpList | 
+        empfilter:{name: filteredName.value, city: filteredCity.value}; track emp.id) {
             <tr>
                 <td>{{emp.id}}</td>
                 <td>{{emp.name}}</td>
